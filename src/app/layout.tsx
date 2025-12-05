@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "../components/shared/header/header";
 import Footer from "../components/shared/footer/footer";
+import { ToastContainer } from "react-toastify";
 
 const montserratRegular = localFont({
   src: './fonts/montserrat.light.ttf',
@@ -51,6 +52,7 @@ export default function RootLayout({
         <footer>
           <Footer />
         </footer>
+         <ToastContainer position="top-center" />
       </body>
     </html>
   );

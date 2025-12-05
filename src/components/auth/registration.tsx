@@ -1,8 +1,15 @@
 'use client'
 
 import { Dispatch, SetStateAction } from 'react'
-import { useForm } from 'react-hook-form'
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '../ui/button'
+import { toast } from 'react-toastify'
+import z from 'zod'
+import { registrationSchema } from './formValidation'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
+
+type RegisterFormValues = z.infer<typeof registrationSchema>;
 
 export default function RegistrationModal({
   setRegisterOpen,
@@ -11,16 +18,43 @@ export default function RegistrationModal({
   setRegisterOpen: Dispatch<SetStateAction<boolean>>
   setShowLogin: Dispatch<SetStateAction<boolean>>
 }) {
-  const form = useForm()
 
+   const router = useRouter();
   const {
+    handleSubmit,
     register,
     formState: { isSubmitting },
     watch,
-  } = form
+  } = useForm<RegisterFormValues>({
+      resolver: zodResolver(registrationSchema),
+    })
 
   const password = watch('password')
   const passwordConfirm = watch('passwordConfirm')
+
+   const onSubmit: SubmitHandler<RegisterFormValues> = async (data) => {
+    console.log(data)
+    try {
+          const res = await fetch("https://coursemaster-server.vercel.app/api/v1/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+    console.log(result)
+
+    if (res.ok && result.success) {
+        toast.success(result.message || "Registration successful");
+        router.push("/");
+      } else {
+        toast.error(result.message || "Login failed");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong.");
+    }
+  };
 
   return (
     <div className='fixed top-0 z-40 flex min-h-screen w-full items-center justify-center'>
@@ -38,7 +72,7 @@ export default function RegistrationModal({
 
         <h2 className='mb-6 text-center text-xl font-semibold'>Create an Account</h2>
 
-        <form className='space-y-4'>
+        <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
           <div>
             <p className='label'>Name</p>
             <input

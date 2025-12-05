@@ -1,20 +1,17 @@
 'use client'
-import { HandshakeIcon, HeartPlus, Menu, ShoppingBagIcon, TextSearchIcon, UserRound, X } from 'lucide-react'
+import { HeartPlus, Menu, ShoppingBagIcon, UserRound, X } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Authentication from '../../auth'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
 export default function BottomHeader() {
-  const path = usePathname()
   const [open, setOpen] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
 
@@ -60,7 +57,7 @@ export default function BottomHeader() {
               <DropdownMenuItem>Contact</DropdownMenuItem>
               <DropdownMenuItem className=' text-secondary'>
                 <div className='bg-primary p-2 w-full flex gap-2 items-center hover:cursor-pointer' onClick={() => setShowLogin(true)}>
-                  <UserRound className='text-secondary'/> <p className='link-text'>Login</p>
+                  <UserRound className='text-secondary'/> <p className=''>Login</p>
                 </div>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -68,7 +65,9 @@ export default function BottomHeader() {
 
         </div>
       </div>
-      <Authentication showLogin={showLogin} setShowLogin={setShowLogin} />
+      {showLogin ?  <Authentication showLogin={showLogin} setShowLogin={setShowLogin} />: null}
+
+
     </>
   )
 }
