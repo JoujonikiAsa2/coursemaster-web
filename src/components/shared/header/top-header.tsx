@@ -1,5 +1,5 @@
 'use client'
-import { HandshakeIcon, HeartPlus, ShoppingBagIcon, TextSearchIcon, UserRound } from 'lucide-react'
+import { Contact, HandshakeIcon, HeartPlus, ShoppingBagIcon, TextSearchIcon, UserRound } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useState } from 'react'
@@ -12,14 +12,11 @@ export default function TopHeader() {
 
   return (
     <>
-      <div className='text-primary-foreground container-style flex justify-between items-center h-full'>
+      <div className='hidden md:flex text-primary-foreground container-style justify-between items-center h-full'>
         <div className='flex gap-4 items-center h-full'>
-          <Link
-            href='/courses'
-            className={`flex h-full items-center px-4 ${path !== '/' && ' md:text-primary-foreground text-2xl'}`}
-          >
-            CourseMaster
-          </Link>
+          <div className='flex gap-2 items-center py-2'>
+            <Contact className='icon'/><p className='link-text'> (+88) 1770 6886</p>
+          </div>
 
         </div>
         <div className='flex gap-4 items-center h-full'>

@@ -4,7 +4,7 @@ import FooterContent from './footer-content'
 
 export default function Footer() {
   return (
-      <div className='bg-primary text-white py-16'>
+      <div className='bg-primary py-16 text-primary-foreground'>
         <FooterContent/>
         <Copyright />
       </div>

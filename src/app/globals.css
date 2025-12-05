@@ -10,10 +10,10 @@
   --card-foreground: oklch(0 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.1450 0 0);
-  --primary: oklab(59.807% 0.1148 0.08865);
+  --primary: #5459AC;
   /* --primary: #FFF501; */
-  --primary-foreground: oklch(0.9715 0.0028 308.4283);
-  --secondary: oklch(96.308% 0.01465 80.637);
+  --primary-foreground: #F8F8F8;
+  --secondary: #F8F8F8;
   --secondary-foreground: oklch(0 0 0);
   --muted: oklch(0.9700 0 0);
   --muted-foreground: oklch(0.5560 0 0);
@@ -129,6 +129,54 @@
   @apply max-w-312 mx-auto px-4 xl:px-0
 }
 
+.icon {
+  @apply w-[21px] h-[21px];
+}
+
+h1 {
+  @apply lg:text-[50px] text-[30px];
+  font-family: var(--font-montserrat-extrabold);
+}
+
+h2 {
+  @apply lg:text-[30px] text-[20px];
+  font-family: var(--font-montserrat-bold);
+}
+
+h3 {
+  @apply lg:text-[20px] text-[16px];
+  font-family: var(--font-montserrat-bold);
+}
+
+h4 {
+  @apply text-[16px] lg:text-[18px];
+  font-family: var(--font-montserrat-bold);
+}
+
+h5 {
+  @apply text-[14px] lg:text-base;
+  font-family: var(--font-montserrat-bold);
+}
+
+h6 {
+  @apply text-[14px] lg:text-[14px];
+  font-family: var(--font-montserrat-bold);
+}
+
+.title-lg {
+  @apply text-[18px];
+  font-family: var(--font-montserrat-extrabold);
+}
+
+.title-md {
+  @apply text-[16px];
+  font-family: var(--font-montserrat-extrabold);
+}
+
+.title-sm {
+  @apply text-[14px];
+  font-family: var(--font-montserrat-bold);
+}
 
 
 @layer base {
