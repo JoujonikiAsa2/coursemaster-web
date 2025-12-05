@@ -7,10 +7,10 @@ export default function Banner({ title, subtitle }: { title: string, subtitle: s
   return (
     <section className='container-style flex flex-col items-center justify-center gap-6 overflow-hidden pt-6 lg:pt-20 lg:flex-row lg:justify-between'>
       <div className='w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-start'>
-        <h1 className='md:pt-0t pt-8'>{title}</h1>
-        <p className='text-accent-foreground pb-4 text-sm font-semibold'>{subtitle}</p>
-        <Link href="/course">
-          <Button className='max-w-fit '>Find Course</Button>
+        <h1 className=''>{title}</h1>
+        <p className='text-accent-foreground pb-4 text-sm '>{subtitle}</p>
+        <Link href="/courses">
+          <Button className='max-w-fit h-12'>Find Course</Button>
         </Link>
       </div>
       <div className='w-1/2 relative flex justify-center'>

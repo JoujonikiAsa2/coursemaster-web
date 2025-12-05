@@ -25,17 +25,17 @@ export default function BottomHeader() {
         <div className='flex gap-4 items-center h-full'>
           <Link
             href='/'
-            className={`flex h-full items-center px-4 ${path !== '/' && ' md:text-primary-foreground text-2xl'}`}
+            className={`flex h-full items-center px-4`}
           >
             CourseMaster
           </Link>
 
         </div>
         <ul className='hidden md:flex gap-4 items-center h-full'>
-          <li className='link-text'>Home</li>
-          <li className='link-text'>Courses</li>
-          <li className='link-text'>About</li>
-          <li className='link-text'>Contact</li>
+          <Link href="/"><li className='link-text'>Home</li></Link>
+          <Link href="/courses"><li className='link-text'>Courses</li></Link>
+          <Link href="/about"><li className='link-text'>About</li></Link>
+          <Link href="/contact"><li className='link-text'>Contact</li></Link>
         </ul>
         <div className='flex gap-4 md:hidden'>
 
